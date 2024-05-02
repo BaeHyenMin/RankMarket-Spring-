@@ -43,7 +43,7 @@ public class WebSocketController {
         session.remove(event.getSessionId());
     }
 
-    @MessageMapping("/mypage/chatroom/{roomId}")
+    @MessageMapping("/add/chatroom/message")
     public void sendMessage(@DestinationVariable String roomId, ResChatMessagesDto resChatMessagesDto, SimpMessageHeaderAccessor accessor) {
 
         String sessionId = accessor.getSessionId();

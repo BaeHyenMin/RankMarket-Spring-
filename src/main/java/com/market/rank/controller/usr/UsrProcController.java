@@ -45,7 +45,7 @@ public class UsrProcController {
                 );
     }
 
-    @PostMapping("/bid/end/product/{prdId}")
+    @PostMapping("/end/bid/product/{prdId}")
     public void bidEnd(@PathVariable("prdId") int prdId){
         usrProcService.bidEnd(prdId);
     }
@@ -105,7 +105,7 @@ public class UsrProcController {
 
         usrProcService.reportDelete(rpt_id);
     }
-    @DeleteMapping("/delete/review")
+    @DeleteMapping("/delete/reviews")
     public void deleteReview(@RequestParam(value = "prdIds") List<Integer> prdIds){
         String usrId = SecurityContextHolder.getContext().getAuthentication().getName();
         usrProcService.reviewDelete(prdIds, usrId);

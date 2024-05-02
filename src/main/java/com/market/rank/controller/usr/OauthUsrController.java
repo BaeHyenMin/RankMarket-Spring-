@@ -59,8 +59,8 @@ OauthUsrController {
         usrProcService.usrDelete(usr_id);
     }
 
-    @GetMapping("/google")
-    public  ResponseEntity<ResDto> googleLogin(@RequestParam("code") String code){
+    @GetMapping("/google/{code}")
+    public  ResponseEntity<ResDto> googleLogin(@PathVariable("code") String code){
         ReqLoginUsrDto usr = googleLoginService.getGoogleUsrInfo(code);
         return usrCheck.usrMakeToken(usr);
     }
