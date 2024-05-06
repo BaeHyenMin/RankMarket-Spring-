@@ -63,7 +63,7 @@ public interface UsrProcMapper {
     void prdBidCntUpdate(int prdId);
 
     //rptSave
-    @Insert("insert into rpt  values (to_char(sysdate, 'YYMMDD')||''||to_char(lpad(rpt_seq.nextval,2,'0')) ||''||#{rpt_id}, #{usr_id}, #{prd_id} , #{rpt_des});")
+    @Insert("insert into rpt  values (to_char(sysdate, 'YYMMDD')||''||to_char(lpad(rpt_seq.nextval,2,'0')) ||''||#{rpt_id}, #{usr_id}, #{prd_id} , #{rpt_des})")
     void rptSave(ReqAddRptDto reqAddRptDto, String usr_id);
 
 
@@ -76,11 +76,11 @@ public interface UsrProcMapper {
     void chatRoomSave(String usr_id, int prd_id);
 
     //usrDelete
-    @Delete("delete from usr where usr_id = #{usrId};")
+    @Delete("delete from usr where usr_id = #{usrId}")
     void usrDelete(String usr_id);
 
     //chatMassageSave
-    @Insert("insert into chat_messages(chat_id, usr_id, msg, cre_dtm) values (#{chatId}, #{usrId}, #{msg}, sysdate);")
+    @Insert("insert into chat_messages(chat_id, usr_id, msg, cre_dtm) values (#{chatId}, #{usrId}, #{msg}, sysdate)")
     void chatMessagesSave(ResChatMessagesDto resChatMessagesDto);
 
     @Select("select u.usr_id, (select usr_id from usr where usr_id = p.usr_id) " +
@@ -98,7 +98,7 @@ public interface UsrProcMapper {
     void usrUpdate(String updateColumn,String updateValue, String usrId);
 
     //changeWishLists
-    @Select("SELECT usr_id FROM wish_list WHERE usr_id = #{usrId} AND prd_id = #{prdId}; ")
+    @Select("SELECT usr_id FROM wish_list WHERE usr_id = #{usrId} AND prd_id = #{prdId}")
     String exitsByWishLists(String usrId, int prdId);
 
     @Insert("insert into wish_lists(prd_id, usr_id) values (#{prdId}, #{usrId})")
@@ -113,15 +113,15 @@ public interface UsrProcMapper {
     void rptDelete(int rptId);
 
     //reviewDelete
-    @Delete("delete from review where usr_id = #{usrId} and prd_id = #{prdId};")
+    @Delete("delete from review where usr_id = #{usrId} and prd_id = #{prdId}")
     void reviewDelete(String usrId, int prdId);
 
     //bidDel
-    @Delete("delete from auction where prd_id = #{prdId} and usr_id = #{usrId};")
+    @Delete("delete from auction where prd_id = #{prdId} and usr_id = #{usrId}")
     void auctionDelete(String usrId, int prdId);
 
     //dealDtmSave
-    @Insert(value = "insert into deal_dtm(prd_id, usr_id, lat, lng, dl_time) values(#{prdId}, #{usrId}, #{lat}, #{lng}, #{dlTime});")
+    @Insert(value = "insert into deal_dtm(prd_id, usr_id, lat, lng, dl_time) values(#{prdId}, #{usrId}, #{lat}, #{lng}, #{dlTime})")
     void dealDtmSave(ReqAddDelDtm reqAddDelDtm);
 
     //deviceTokenSave

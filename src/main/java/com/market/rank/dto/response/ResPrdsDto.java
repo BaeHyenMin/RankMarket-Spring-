@@ -8,7 +8,7 @@ import lombok.Setter;
 public class ResPrdsDto {
     private String img;
     private String title;
-    private int prd_id;
+    private int prdId;
     private int sellPrice;
     private boolean wish;
     private String endDtm;

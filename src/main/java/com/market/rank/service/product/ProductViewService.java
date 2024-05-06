@@ -6,8 +6,10 @@ import com.market.rank.dto.response.ResPrdPopDto;
 import com.market.rank.dto.response.ResPrdsDto;
 import com.market.rank.mapper.product.ProductViewMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,10 +19,16 @@ public class ProductViewService {
 
     private final ProductViewMapper productViewMapper;
 
+    private final SqlSession sqlSession;
+
 
     public List<ResPrdsDto> products(int offset, String usrId, String search) {
 
-        return productViewMapper.productViews(usrId, offset, search);
+        if(search != null){
+           return  productViewMapper.productSearchViews(usrId, offset, search);
+        }
+
+        return productViewMapper.productViews(usrId, offset);
 
     }
 

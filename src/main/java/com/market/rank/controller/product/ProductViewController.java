@@ -43,7 +43,7 @@ public class ProductViewController {
     }
 
 
-    @GetMapping("/popular/main/")
+    @GetMapping("/popular/main")
     public ResponseEntity<ResDto> popular(){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ResDto.builder()
@@ -52,7 +52,7 @@ public class ProductViewController {
                                 productViewService.prdPopular()
                         ).build());
     }
-    @GetMapping("/most/main/")
+    @GetMapping("/most/main")
     public ResponseEntity<ResDto> recent(){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(

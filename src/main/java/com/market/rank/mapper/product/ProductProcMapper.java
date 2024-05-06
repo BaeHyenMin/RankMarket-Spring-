@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface ProductProcMapper {
     @Insert("INSERT INTO product (prd_id, cat_id, usr_id, title, sell_prc, high_prc, significant, ieast_prc, des, end_dtm, start_dtm, status) " +
-            "VALUES (PRD_SEQ.nextval, #{cat_id},#{usrId}, #{title}, #{sell_prc}, #{high_prc}, #{significant}, #{ieast_price}, #{des},sysdate + 7, TRUNC(sysdate), 1);create table product(    prd_id      int,    cat_id      int,    usr_id      int,    title       int,    sell_prc    int,    high_prc    int,    significant int,    ieast_prc   int,    des         int,    end_dtm     int,    start_dtm   int,    status      int,    nextval     int)/")
+            "VALUES (PRD_SEQ.nextval, #{cat_id},#{usrId}, #{title}, #{sell_prc}, #{high_prc}, #{significant}, #{ieast_price}, #{des},sysdate + 7, TRUNC(sysdate), 1)")
     void prdSave(ReqAddPrdDto reqAddPrdDto);
 
     @Select("select max(prd_id) from product")

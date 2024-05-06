@@ -35,7 +35,7 @@ public class SecurityConfig {
 
 
         http.authorizeHttpRequests()
-                .requestMatchers("/products/**", "/product/detail/**", "/oauth/**", "/main/**","/mypage/chatroom/**","/pub/**","/sub/**", "/mobile/**","/send-one").permitAll()
+                .requestMatchers("/products/**", "/product/detail/**", "/oauth/**", "/popular/main","/most/main","/mypage/chatroom/**","/pub/**","/sub/**", "/mobile/**","/send-one").permitAll()
                 .requestMatchers("/signup").hasRole("GUEST")
                 .requestMatchers("/validation/**").authenticated()
                 .anyRequest().hasRole("USER");
